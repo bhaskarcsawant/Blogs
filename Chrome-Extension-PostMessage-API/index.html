@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Waiting for messages:</h2><br />
+    <p id="texts"></p>
+</body>
+<script>
+    let texts = document.getElementById('texts');
+    window.addEventListener('message', (event) => {
+        const {type, data} = event.data;
+        if (type === "FROM_CONTENT") {
+            console.log(event.data);
+            texts.innerHTML += data + '<br />';
+        }
+    });
+</script>
+</html>
